@@ -61,6 +61,31 @@ end
 puts anagram4?("gizmo", "sally") == false
 puts anagram4?("elvis", "lives") == true
 
+def anagram5?(str1, str2)
+  hash = {}
+  str1.chars.each do |char|
+    if hash.include?(char)
+      hash[char] += 1
+    else
+      hash[char] = 1
+    end
+  end
+
+  str2.chars.each do |char|
+    return false if hash[char].nil?
+    hash[char] -= 1
+  end
+
+  hash.each do |key, value|
+    return false if value > 0
+  end
+
+  true
+end
+
+puts anagram5?("gizmo", "sally") == false
+puts anagram5?("elvis", "lives") == true
+
 def two_sum(nums, target)
   nums = nums.dup.sort
   i = 0
