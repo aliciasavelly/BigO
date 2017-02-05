@@ -11,8 +11,8 @@ def bad_two_sum?(nums, target)
 end
 
 arr = [0, 1, 5, 7]
-# p bad_two_sum?(arr, 6) == true
-# p bad_two_sum?(arr, 10) == false
+p bad_two_sum?(arr, 6) == true
+p bad_two_sum?(arr, 10) == false
 
 # O(nlogn) linearithmic time
 # O(n) linear space
@@ -36,8 +36,8 @@ def okay_two_sum?(nums, target)
   false
 end
 
-# p okay_two_sum?(arr, 6) == true
-# p okay_two_sum?(arr, 10) == false
+p okay_two_sum?(arr, 6) == true
+p okay_two_sum?(arr, 10) == false
 
 # O(n) linear time
 # O(n) linear space
