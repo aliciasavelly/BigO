@@ -36,5 +36,21 @@ def okay_two_sum?(nums, target)
   false
 end
 
-p okay_two_sum?(arr, 6) == true
-p okay_two_sum?(arr, 10) == false
+# p okay_two_sum?(arr, 6) == true
+# p okay_two_sum?(arr, 10) == false
+
+# O(n) linear time
+# O(n) linear space
+def two_sum?(nums, target)
+  nums_hash = {}
+
+  nums.each do |num|
+    return true if nums_hash[target - num]
+    nums_hash[num] = true
+  end
+
+  false
+end
+
+p two_sum?(arr, 6) == true
+p two_sum?(arr, 10) == false
