@@ -1,4 +1,6 @@
-def two_sum?(nums, target)
+# O(n^2) quadratic time
+# O(1) constant space
+def bad_two_sum?(nums, target)
   nums = nums.dup.sort
   nums.each_with_index do |num, idx|
     nums.each_with_index do |num2, idx2|
@@ -9,13 +11,30 @@ def two_sum?(nums, target)
 end
 
 arr = [0, 1, 5, 7]
-p two_sum?(arr, 6) == true
-p two_sum?(arr, 10) == false
+# p bad_two_sum?(arr, 6) == true
+# p bad_two_sum?(arr, 10) == false
 
-def two_sum(nums, target)
-  # iterature thru arr of nums, then create a hash using num as key,
-  # values as indices
-  # then you would check to see if c bomination fot he keys  is == target,
-  # if u do throw in all valid indices pairs
+# O(nlogn) linearithmic time
+# O(n) linear space
+def okay_two_sum?(nums, target)
+  sorted_nums = nums.sort
 
+  i = 0
+  j = sorted_nums.length - 1
+
+  while i < j
+    case (sorted_nums[i] + sorted_nums[j] <=> target)
+    when 0
+      return true
+    when -1
+      i += 1
+    when 1
+      j -= 1
+    end
+  end
+
+  false
 end
+
+p okay_two_sum?(arr, 6) == true
+p okay_two_sum?(arr, 10) == false
