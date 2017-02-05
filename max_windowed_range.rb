@@ -19,63 +19,6 @@ window.each do |el|
   stack.min
 end
 
-class Queue
-
-  def initialize(store = [])
-    @store = store
-  end
-
-  def enqueue(el)
-    @store.push(el)
-    el
-  end
-
-  def dequeue
-    @store.shift
-  end
-
-  def peek
-    @store.dup.first
-  end
-
-  def size
-    @store.length
-  end
-
-  def empty?
-    @store.empty?
-  end
-
-end
-
-class Stack
-
-  def initialize(store = [])
-    @store = store
-  end
-
-  def push(el)
-    @store.push(el)
-    el
-  end
-
-  def pop
-    @store.pop
-  end
-
-  def peek
-    @store.dup.last
-  end
-
-  def size
-    @store.length
-  end
-
-  def empty?
-    @store.empty?
-  end
-
-end
 
 class MinMaxStack
 
