@@ -19,7 +19,65 @@ window.each do |el|
   stack.min
 end
 
+class Queue
+
+  def initialize(store = [])
+    @store = store
+  end
+
+  def enqueue(el)
+    @store.push(el)
+    el
+  end
+
+  def dequeue
+    @store.shift
+  end
+
+  def peek
+    @store.dup.first
+  end
+
+  def size
+    @store.length
+  end
+
+  def empty?
+    @store.empty?
+  end
+
+end
+
 class Stack
+
+  def initialize(store = [])
+    @store = store
+  end
+
+  def push(el)
+    @store.push(el)
+    el
+  end
+
+  def pop
+    @store.pop
+  end
+
+  def peek
+    @store.dup.last
+  end
+
+  def size
+    @store.length
+  end
+
+  def empty?
+    @store.empty?
+  end
+
+end
+
+class MinMaxStack
 
   def initialize(store = [])
     @store = store
@@ -60,35 +118,6 @@ class Stack
 
 end
 
-class Queue
-
-  def initialize(store = [])
-    @store = store
-  end
-
-  def enqueue(el)
-    @store.push(el)
-    el
-  end
-
-  def dequeue
-    @store.shift
-  end
-
-  def peek
-    @store.dup.first
-  end
-
-  def size
-    @store.length
-  end
-
-  def empty?
-    @store.empty?
-  end
-
-end
-
 class StackQueue
   def initialize
     @in_stack = Stack.new
@@ -100,11 +129,6 @@ class StackQueue
   end
 
   def dequeue
-    # this creates the "flip" which you perform when
-    # out_stack is empty.
-    # when you dequeue, you destroy your instack,
-    # by dequeing it as much as its size and quee in those
-    # vals to the outstack
     if @out_stack.empty?
       @in_stack.size.times do |i|
         @out_stack.push(@in_stack.pop)
@@ -122,11 +146,6 @@ class StackQueue
   end
 
 end
-
-
-
-
-
 
 class MinMaxStackQueue
 
