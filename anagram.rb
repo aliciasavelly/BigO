@@ -20,10 +20,46 @@ end
 puts anagram2?("gizmo", "sally") == false
 puts anagram2?("elvis", "lives") == true
 
-
 def anagram3?(str1, str2)
-  str1.sort == str2.sort && str1 != str2
+  str1.chars.sort == str2.chars.sort && str1 != str2
 end
+
+puts anagram3?("gizmo", "sally") == false
+puts anagram3?("elvis", "lives") == true
+
+def anagram4?(str1, str2)
+  hash1 = {}
+  hash2 = {}
+
+  str1.chars.each do |char|
+    if hash1.include?(char)
+      hash1[char] += 1
+    else
+      hash1[char] = 1
+    end
+  end
+
+  str2.chars.each do |char|
+    if hash2.include?(char)
+      hash2[char] += 1
+    else
+      hash2[char] = 1
+    end
+  end
+
+  hash1.each do |key, val|
+    return false if hash2[key] != hash1[key]
+  end
+
+  hash2.each do |key, val|
+    return false if hash2[key] != hash1[key]
+  end
+
+  true
+end
+
+puts anagram4?("gizmo", "sally") == false
+puts anagram4?("elvis", "lives") == true
 
 def two_sum(nums, target)
   nums = nums.dup.sort
